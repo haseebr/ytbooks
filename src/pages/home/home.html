@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+    Search
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar
+        [(ngModel)]="myInput"
+        [showCancelButton]="false">
+    </ion-searchbar>
+    <button ion-button (click)="search()">Search</button>
+    <!-- <ion-list> -->
+        <ion-card *ngFor="let result of resultsObject | keys"
+                  (click)="openYoutube(result)">
+            <button ion-item>
+                <ion-thumbnail item-left>
+                    <img src="{{result.value.thumbnails.default.url}}" />
+                </ion-thumbnail>
+                {{result.value.title}}
+                <br/>
+                <br />
+                <h6>Runtime: {{result.value.duration}}</h6>
+                <!-- {{log(result)}} -->
+            </button>
+    </ion-card>
+    <!-- </ion-list>> -->
+    <!-- <button ion-button (click)="download()">Download</button> -->
+    <!-- <button ion-button (click)="play()">Play</button> -->
+    <!-- <button ion-button (click)="pause()">Pause</button> -->
+    <!-- <button ion-button (click)="pos()">Position</button> -->
+    <!-- <button ion-button (click)="duration()">Duration</button> -->
+</ion-content>

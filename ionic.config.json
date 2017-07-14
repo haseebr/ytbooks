@@ -1,0 +1,12 @@
+{
+  "name": "ytbooks",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/search/",
+      "proxyUrl": "https://www.goodreads.com/search/"
+    }
+  ]
+}

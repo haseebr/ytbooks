@@ -1,0 +1,45 @@
+<!--
+  Generated template for the YoutubeDownloadModal page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Download Options</ion-title>
+    <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+            <!-- <span ion-text color="primary">Back</span> -->
+            <span ion-text color="primary" showWhen="ios">Back</span>
+            <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+    <ion-thumbnail item-left>
+        <img src="{{videoInfo.thumbnail}}" />
+    </ion-thumbnail>
+    <div style="padding-left: 10px;">
+    <br />
+    {{videoInfo.fulltitle}}
+    <h6>Runtime: {{videoInfo.duration}}</h6></div>
+    </ion-card>
+    <ion-list>
+        <ion-item *ngFor="let l of downloadInfo">
+            Extension: {{l.extension}} <br />
+            Size: {{l.size}} MB
+            <button (click)="downloadYoutube(l)"
+                    ion-button outline item-right icon-left>
+                <ion-icon name="download"></ion-icon>
+                Download
+            </button>
+        </ion-item>
+    </ion-list>
+</ion-content>
