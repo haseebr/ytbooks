@@ -57,37 +57,31 @@ export class HomePage {
         console.log(val);
     }
 
-    //Original Youtube Search
-    // search() {
-    //     this.present();
-    //     console.log("Searching for", this.myInput);
-    //     // this.yt.search(this.myInput).then(result => {
-    //     //     console.log(result);
-    //     //     this.dismiss();
-    //     // })
-
-    //     this.yt.search2(this.myInput).then(result => {
-    //         if ("undefined" in result) {
-    //             delete result["undefined"];
-    //         }
-
-    //         this.resultsObject = result;
-    //         this.dismiss();
-    //     })
-    // }
-
     search() {
         this.present();
-        try {
-            this.gr.search(this.myInput).then(result => {
-                console.log(result);
-            })
-        } catch (e) {
-            console.log(e);
-        } finally {
+        this.yt.search2(this.myInput).then(result => {
+            if ("undefined" in result) {
+                delete result["undefined"];
+            }
+
+            this.resultsObject = result;
             this.dismiss();
-        }
+        })
     }
+
+    //GoodReads Search
+    // search() {
+    //     this.present();
+    //     try {
+    //         this.gr.search(this.myInput).then(result => {
+    //             console.log(result);
+    //         })
+    //     } catch (e) {
+    //         console.log(e);
+    //     } finally {
+    //         this.dismiss();
+    //     }
+    // }
 
     openYoutube(video) {
         this.present()

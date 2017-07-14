@@ -12,21 +12,20 @@
 
 </ion-header>
 
-
-<ion-content padding>
+<ion-content>
         <div *ngIf="isDataAvailable">
-        <ion-card *ngFor="let d of data | keys"
+        <ion-list *ngFor="let d of data | keys"
                   (click)="playAudio(d.value)">
             <button ion-item>
             <ion-thumbnail item-left>
-                <img style="width: 80px;" src="{{d.value.thumb}}" />
+                <img src="{{d.value.thumb}}" />
             </ion-thumbnail>
-                {{d.value.title}}<br />
-            Duration: {{d.value.duration}}<br />
-            Downloaded: {{getPercentage(d.value.progress)}}%
+            <h2 style="white-space: normal">{{d.value.title}}</h2>
+            <p>{{d.value.duration}}</p>
+            <!-- Downloaded: {{getPercentage(d.value.progress)}}% -->
 
             </button>
-        </ion-card></div>
-        <button ion-button (click)="clear()">Clear</button>
+        </ion-list></div>
+        <button style="margin-left: 16px" ion-button (click)="clear()">Clear</button>
         <button ion-button (click)="reload()">Reload</button>
 </ion-content>
